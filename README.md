@@ -2,3 +2,9 @@ The purpose of the project is to allow a person to see their current PCs, hardwa
 
 Languages: 
 - Python
+
+Libraries:
+- psutil 
+- GPUtil 
+- streamlit 
+- plotly
