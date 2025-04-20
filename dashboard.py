@@ -3,3 +3,8 @@
 # 
 
 #   This file shoud, compare both stats.
+
+import streamlit as st
+
+st.set_page_config(layout="wide", page_title="System Performance Dashboard")
+st.title('Real-Time System Performance Metrics')
