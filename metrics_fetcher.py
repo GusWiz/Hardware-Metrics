@@ -10,12 +10,44 @@ class MetricsFetcher:
     def __init__(self):
         pass
     def get_cpu_usage(self):
-        pass
+        return psutil.cpu_percent(interval=1) # returns the cpu percentage out of 100%
     def get_memory_info(self):
-        pass
+        # sets varaiable from psutil library that contains informaiton about memory
+        memory = psutil.virtual_memory()
+        # returns the memory varaibles by a dictionary
+        return {
+            'total': memory.total,
+            'available': memory.available,
+            'used': memory.used,
+            'percentage': memory.percent
+        }
     def get_disk_info(self):
-        pass
+        disk = psutil.disk_usage('/') # start of all directories.
+        return {
+            'total': disk.total,
+            'used': disk.used,
+            'free': disk.free,
+            'percentage': disk.percentage
+        }
     def get_network_io(self):
-        pass
+        net_io = psutil.net_connections()
+        return {
+            'bytes_sent': net_io.bytes_sent,
+            'bytes_recv': net_io.bytes_recv
+        }
     def get_gpu_info(self):
-        pass
+        gpus = GPUtil.getGPUs()
+        if gpus:
+            gpu = gpus[0]
+            return {
+                'id': gpu.id,
+                'name': gpu.name,
+                'load': gpu.load * 100,
+                'memory_total': gpu.memoryTotal,
+                'memory_used': gpu.memoryUsed,
+                'memory_free': gpu.memoryFree
+            }
+        else:
+            return None
+        
+
