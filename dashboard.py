@@ -25,8 +25,8 @@ while True:
         with gpu_placeholder.container():
             st.subheader(f'GPU Usage for {gpu.name}')
             st.write(f'Utilization: {gpu_utilization}')
-            st.progress(int(gpu_utilization)) # displays the data in a progress bar
-    else:
+            st.progress(int(gpu_utilization)) # displays
+            
         with gpu_placeholder.container():
             st.subheader('GPU Usage')
             st.write('No NVIDIA GPU detected')

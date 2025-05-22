@@ -7,8 +7,6 @@ import time
 # Time is used for disk IO counter intervals
 
 class MetricsFetcher:
-    def __init__(self):
-        pass
     def get_cpu_usage(self):
         return psutil.cpu_percent(interval=1) # returns the cpu percentage out of 100%
     def get_memory_info(self):
